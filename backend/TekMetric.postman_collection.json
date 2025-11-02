@@ -1,0 +1,397 @@
+{
+	"info": {
+		"_postman_id": "42f30516-aaa0-4a66-95c8-c3e0a47a734f",
+		"name": "TekMetric",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37603430"
+	},
+	"item": [
+		{
+			"name": "API Docs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v3/api-docs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v3",
+						"api-docs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all parts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/parts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"parts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "count all parts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/parts/count",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"parts",
+						"count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all parts (paged)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/parts/paged?page=1&size=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"parts",
+						"paged"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get part by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/parts/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"parts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get part by name",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/parts/search?name=Brake Pad",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"parts",
+						"search"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Brake Pad"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get part by cat",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/parts/searchcat?name=BRAKES",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"parts",
+						"searchcat"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "BRAKES"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create part",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"name\": \"Oil Filter\",\r\n        \"manufacturer\": \"Bosch\",\r\n        \"price\": 15.99,\r\n        \"category\": \"ENGINE\",\r\n        \"stockQuantity\": 150\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/parts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"parts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find parts by example",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"name\": \"Oil Filter\",\r\n        \"manufacturer\": \"Bosch\",\r\n        \"price\": 15.99,\r\n        \"category\": \"ENGINE\",\r\n        \"stockQuantity\": 150\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/parts/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"parts",
+						"search"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "query - agg by price and q",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"filter\": {\r\n    \"category\": \"ENGINE\",\r\n    \"minPrice\": 20,\r\n    \"maxPrice\": 1000\r\n  },\r\n  \"pagination\": {\r\n    \"page\": 0,\r\n    \"size\": 5,\r\n    \"sortBy\": \"price\",\r\n    \"direction\": \"desc\"\r\n  },\r\n  \"aggregation\": {\r\n    \"fields\": [\"price\", \"stockQuantity\"],\r\n    \"function\": \"avg\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/parts/query",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"parts",
+						"query"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "query - filter",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"filter\": {\r\n    \"category\": \"ENGINE\",\r\n    \"minPrice\": 1,\r\n    \"maxPrice\": 1000\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/parts/query",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"parts",
+						"query"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "query - filter, paging",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"filter\": {\r\n    \"category\": \"ENGINE\",\r\n    \"minPrice\": 2,\r\n    \"maxPrice\": 1000\r\n  },\r\n  \"pagination\": {\r\n    \"page\": 0,\r\n    \"size\": 2,\r\n    \"sortBy\": \"price\",\r\n    \"direction\": \"desc\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/parts/query",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"parts",
+						"query"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update part",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"Oil Filter\", \"manufacturer\": \"Bosch\", \"price\": 15.75, \"category\": \"Engine\", \"stockQuantity\": 150 }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/parts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"parts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete part",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"Oil Filter\", \"manufacturer\": \"Bosch\", \"price\": 15.75, \"category\": \"Engine\", \"stockQuantity\": 150 }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/parts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"parts"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
